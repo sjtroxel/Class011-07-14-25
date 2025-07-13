@@ -28,7 +28,7 @@ RSpec.describe "Events", type: :request do
     let(:user) { create(:user) }
     let(:token) { auth_token_for_user(user) }
     let(:sport) { create(:sport) }
-    let(:event_attributes) { attributes_for(:event, user_id: user.id, sport_ids: [sport.id]) }
+    let(:event_attributes) { attributes_for(:event, sport_ids: [sport.id]) }
 
     before do
       post "/events", params: event_attributes, headers: { Authorization: "Bearer #{token}" }
